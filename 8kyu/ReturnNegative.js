@@ -1,17 +1,22 @@
-/*In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
-    Examples:
-        makeNegative(1);    // return -1
-        makeNegative(-5);   // return -5
-        makeNegative(0);    // return 0
-        makeNegative(0.12); // return -0.12
-Notes:
-The number can be negative already, in which case no change is required.
-Zero (0) is not checked for any specific sign. Negative zeros make no mathematical sense.
-*/
+/* Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
 
-function makeNegative(num) {
-    if (num > 0) {
-      return -num;
-    }
-    return num
+Your task is to write a function maskify, which changes all but the last four characters into '#'.
+Examples (input --> output):
+"4556364607935616" --> "############5616"
+     "64607935616" -->      "#######5616"
+               "1" -->                "1"
+                "" -->                 ""
+
+// "What was the name of your first pet?"
+"Skippy" --> "##ippy"
+"Nananananananananananananananana Batman!" --> "####################################man!" */
+
+// return masked string
+function maskify(cc) {
+    const changed = cc.replace(/.(?=.{4})/g, '#');
+    return changed
   }
+
+function maskify(cc) {
+    return cc.replace(/.(?=.{4})/g, '#');
+}
