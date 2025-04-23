@@ -1,27 +1,23 @@
-/* Trolls are attacking your comment section!
-A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
-Your task is to write a function that takes a string and return a new string with all vowels removed.
-For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
-Note: for this kata y isn't considered a vowel. */
-
-//Best Practice
-function disemvowel(str) {
-    return str.replace(/[aeiou]/gi, '');
-}
+/* Define a function that removes duplicates from an array of non negative numbers and returns it as a result.
+The order of the sequence has to stay the same.
+Examples:
+    Input -> Output
+    [1, 1, 2] -> [1, 2]
+    [1, 2, 1, 1, 3, 2] -> [1, 2, 3] */
 
 //My Solution
-function disemvowel(str) {
-    let newString = "";
-    const vowels = "aeiouAEIOU";
+function distinct(a) {
+    let withoutDuplicates = [];
     
-    for (let i = 0; i < str.length; i++) {
-        if (!vowels.includes(str[i])) {
-            newString += str[i];
-        }
+    for (let i = 0; i < a.length; i++) {
+      if (!withoutDuplicates.includes(a[i])) {
+        withoutDuplicates.push(a[i]);
+      }
     }
-    return newString;
+    return withoutDuplicates;
 }
 
-function disemvowel(str) {
-    return str.replace(/[aeiouAEIOU]/g, '');
+//Best Practice
+function distinct(a) {
+    return [...new Set(a)];
 }
