@@ -1,30 +1,36 @@
-/* Given a text, for example:
-    const inputText = "Michael, how are you? - Cool, how is John Williamns and Michael Jordan? I don't know but Michael Johnson is fine.
-    Michael do you still score points with LeBron James, Michael Green AKA Star and Michael Wood?";
+/* Write code that enhances all arrays such that you can call the array.last() method on any array and it will return the last element.
+If there are no elements in the array, it should return -1.
+You may assume the array is the output of JSON.parse.
 
-get an array of last names of people named Michael. The result should be:
-    ["Jordan", "Johnson", "Green", "Wood"]
+Example 1:
+    Input: nums = [null, {}, 3]
+    Output: 3
+    Explanation: Calling nums.last() should return the last element: 3.
+    Example 2:
 
-Notes:
-    First name will always be Michael with upper case 'M'.
-    There will always be a space character between 'Michael' and last name.
-    Last name will always be one word, starting with an upper-case letter and continuing with lower-case letters.
-    There will always be at least one 'Micheal' with a valid last name in the input text. */
+    Input: nums = []
+    Output: -1
+    Explanation: Because there are no elements, return -1.
+
+Constraints:
+    arr is a valid JSON array
+    0 <= arr.length <= 1000 */
 
 //My Solution
-function getMichaelLastName(inputText) {
-    let lastNames = [];
-    const splitted = inputText.split(' ');
+Array.prototype.last = function(){
     
-    for (let i = 0; i < splitted.length; i++) {
-        if (splitted[i] === "Michael" && /^[A-Z]/.test(splitted[i + 1])) {
-            lastNames.push(splitted[i + 1].replace(/[.,?,!]/g, ''));
-        }
+    if (this.length === 0) {
+        return -1;
+    } else {
+        return this[this.length - 1];
     }
-    return lastNames;
-}
+};
 
 //Best Practice
-function getMichaelLastName(inputText) {
-    return inputText.match(/Michael\s([A-Z]\w+)/g).map(x => x.split(' ')[1])
-}
+Array.prototype.last = function() {
+    return this.length ? this[this.length - 1] : -1;
+};
+
+Array.prototype.last = function() {
+    return this.length ? this.slice(-1)[0] : -1;
+};

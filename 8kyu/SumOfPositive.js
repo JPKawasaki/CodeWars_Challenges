@@ -1,30 +1,28 @@
-/* Given a text, for example:
-    const inputText = "Michael, how are you? - Cool, how is John Williamns and Michael Jordan? I don't know but Michael Johnson is fine.
-    Michael do you still score points with LeBron James, Michael Green AKA Star and Michael Wood?";
+/* You get an array of numbers, return the sum of all of the positives ones.
 
-get an array of last names of people named Michael. The result should be:
-    ["Jordan", "Johnson", "Green", "Wood"]
+Example:
+    [1, -4, 7, 12] => 1 + 7 + 12 = 20
+Note:
+    If there is nothing to sum, the sum is default to 0. */
 
-Notes:
-    First name will always be Michael with upper case 'M'.
-    There will always be a space character between 'Michael' and last name.
-    Last name will always be one word, starting with an upper-case letter and continuing with lower-case letters.
-    There will always be at least one 'Micheal' with a valid last name in the input text. */
 
 //My Solution
-function getMichaelLastName(inputText) {
-    let lastNames = [];
-    const splitted = inputText.split(' ');
-    
-    for (let i = 0; i < splitted.length; i++) {
-        if (splitted[i] === "Michael" && /^[A-Z]/.test(splitted[i + 1])) {
-            lastNames.push(splitted[i + 1].replace(/[.,?,!]/g, ''));
-        }
+function positiveSum(arr) {
+  let res = 0;
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      res += arr[i];
     }
-    return lastNames;
+  }
+  return res;
 }
 
-//Best Practice
-function getMichaelLastName(inputText) {
-    return inputText.match(/Michael\s([A-Z]\w+)/g).map(x => x.split(' ')[1])
+//Best Practise
+function positiveSum(arr) {
+    return arr.reduce((a,b)=> a + (b > 0 ? b : 0),0);
+}
+
+function positiveSum (arr) {
+    return arr.filter(x => x>=0).reduce((a, c) => a + c, 0);
 }
