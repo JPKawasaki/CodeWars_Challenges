@@ -1,9 +1,11 @@
-/*Create a function that accepts an array of names, and returns an array of each name with its first 
-letter capitalized and the remainder in lowercase.
+/*An isogram is a word that has no repeating letters, consecutive or non-consecutive.
+Implement a function that determines whether a string that contains only letters is an isogram.
+Assume the empty string is an isogram. Ignore letter case.
 
-Examples:
-    ['jo', 'nelson', 'jurie'] -->  ['Jo', 'Nelson', 'Jurie']
-    ['KARLY', 'DANIEL', 'KELSEY'] --> ['Karly', 'Daniel', 'Kelsey']*/
+Example: (Input --> Output)
+    "Dermatoglyphics" --> true
+    "aba" --> false
+    "moOse" --> false (ignore letter case)*/
 
 
 //My Solution
